@@ -10,6 +10,7 @@ export class WeatherListComponent implements OnInit {
   weatherList: Object;
   climates: any[];
   city: any;
+  latitude_longitude: any;
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(){
@@ -21,6 +22,8 @@ export class WeatherListComponent implements OnInit {
         this.city = this.weatherList["title"];
         //Retrieving consolidated_weather from JSON Object
         this.climates = this.weatherList["consolidated_weather"];
+        //Retrieving location (latitude/longitude)
+        this.latitude_longitude = this.weatherList["latt_long"];
         //Debugging purposes
         console.log(this.weatherList);
       }
