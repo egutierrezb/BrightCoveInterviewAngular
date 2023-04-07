@@ -8,9 +8,8 @@ import { WeatherService } from '../service/weather.service';
 })
 export class WeatherListComponent implements OnInit {
   weatherList: Object;
-  climates: any[];
-  city: any;
-  latitude_longitude: any;
+  climate: any;
+  locationCity: any;
   constructor(private weatherService: WeatherService) { }
 
   ngOnInit(){
@@ -18,12 +17,10 @@ export class WeatherListComponent implements OnInit {
       data => {
         //weathelist is an object of objects
         this.weatherList = data;
-        //Retrieving title property from JSON Object
-        this.city = this.weatherList["title"];
         //Retrieving consolidated_weather from JSON Object
-        this.climates = this.weatherList["consolidated_weather"];
+        this.climate = this.weatherList["current"];
         //Retrieving location (latitude/longitude)
-        this.latitude_longitude = this.weatherList["latt_long"];
+        this.locationCity = this.weatherList["location"];
         //Debugging purposes
         console.log(this.weatherList);
       }

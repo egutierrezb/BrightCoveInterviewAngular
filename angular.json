@@ -17,8 +17,8 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps-interview-angular",    
-            "index": "src/index.html",          
+            "outputPath": "dist/apps-interview-angular",
+            "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "apps-interview-angular"
+    }
+  },
+  "defaultProject": "apps-interview-angular",
+  "cli": {
+    "analytics": "9c34f99d-cfd0-4d32-93ba-29767923ae70"
+  }
 }
