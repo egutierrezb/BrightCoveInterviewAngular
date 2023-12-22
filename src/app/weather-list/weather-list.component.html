@@ -16,11 +16,19 @@
         </tr>
     </thead>
     <tbody>
-            <td>{{locationCity?.name}}</td>           
+        <!--tr *ngFor="let current of currents"-->
+            <td>{{locationCity?.name}}</td>
+        <!--/tr-->           
             <!-- All temperatures are displayed in Celsius according to www.metaweather.com/api-->
-            <td *ngIf="checkTemperature(climate?.temp_c); then roundClimateMin else floorClimateMin"></td>
-            <ng-template #roundClimateMin><td [style.color]="roundTemperature(climate?.temp_c) > 25 ? 'red' : 'blue'">{{roundTemperature(climate?.temp_c)}} [C]</td></ng-template>
-            <ng-template #floorClimateMin><td [style.color]="roundTemperature(climate?.temp_c) > 25 ? 'red' : 'blue'">{{floorTemperature(climate?.temp_c)}} [C]</td></ng-template>
-    
+            <td>{{locationCity?.localtime}}</td>
+            <td *ngIf="checkTemperature(currents?.temp_c); then roundClimateMin else floorClimateMin"></td>
+            <ng-template #roundClimateMin><td [style.color]="roundTemperature(currents?.temp_c) > 25 ? 'red' : 'blue'">{{roundTemperature(currents?.temp_c)}} [C]</td></ng-template>
+            <ng-template #floorClimateMin><td [style.color]="roundTemperature(currents?.temp_c) > 25 ? 'red' : 'blue'">{{floorTemperature(currents?.temp_c)}} [C]</td></ng-template>
+            <td *ngIf="checkTemperature(currents?.temp_f); then roundClimateMax else floorClimateMax"></td>
+            <ng-template #roundClimateMax><td [style.color]="roundTemperature(currents?.temp_f) > 25 ? 'red' : 'blue'">{{roundTemperature(currents?.temp_f)}} [C]</td></ng-template>
+            <ng-template #floorClimateMax><td [style.color]="roundTemperature(currents?.temp_f) > 25 ? 'red' : 'blue'">{{floorTemperature(currents?.temp_f)}} [C]</td></ng-template>
+            <td>{{currents?.condition.text}}</td>
+            <td><img src={{currents?.condition.icon}}></td>
+     
     </tbody>
 </table>
